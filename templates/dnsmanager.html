@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="/static/dnsmanager/dnsmanager.css" rel="stylesheet" type="text/css"/>
+<title>Управление DNS-серверами </title>
+</head>
+<body style="margin:0px; padding:0px;background:#e7e7e7;">
+	<div class="top_header">
+		<div style="float:left;">
+		<div class="top_logo">
+			<a href="/en/dns-manager/"><img src="/static/dnsmanager/dns-manager-logo.png" alt="Логотип DNS-менеджер"/></a>
+		</div>
+			
+	<div class="dropdown">
+	<script>
+	/* When the user clicks on the button, 
+	toggle between hiding and showing the dropdown content */
+	function myFunction() {
+    	document.getElementById("myDropdown").classList.toggle("show");
+	}
+
+	// Close the dropdown if the user clicks outside of it
+	window.onclick = function(event) {
+  	if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      			}
+    		}
+  		}
+	}
+	</script>
+	 	 
+  	<button onclick="myFunction()" class="dropbtn">Управление доменом - <b>{{ curent_domain }}</b></button>
+  		<div id="myDropdown" class="dropdown-content">
+  			{% for domain in domains %}
+  				{% if curent_domain != domain.name %}
+    				<a href="/en/dns-manager/?change_domain={{domain.name}}">Выбрать домен - <b>{{domain.name}}</b></a>
+    			{% endif %}
+    		{% endfor %}
+  		</div>
+	</div>
+	</div>
+	<div class="search_block">
+		<div class="search_text">
+			<form method="GET" action="/en/dns-manager/">
+				<input class="search_input" type="search" name="search" placeholder="Поиск">
+			</form>
+		</div>
+	</div>
+		<div class="login_logout">
+			<div class="logout_text">
+				<b>{{ user }}</b> {% if user.is_staff %}
+				(Администратор)
+				{% else %}
+				(Клиент)
+				{% endif %}
+				</div>
+	 		<a href="/en/dns-manager/?logout=ok"><div class="logout_button"><b>Выход</b></div></a>
+	 	</div>
+	</div>
+	<div class="dns_editor">
+	{{ creation_result | safe }}
+	    <div id="editor"></div>
+
+	<div class="dns_table" >
+                <table >
+                    <tr>
+                        <td>
+                        	{% if sort_direction == 'name' %}
+                        	<a style="color:#FFFFFF" href="/en/dns-manager/?sort_order=-name" title="Установить сортировку по убыванию">
+                        		<div style="float:left" >DNS-запись</div>
+                        	 {% else %}
+                        	 <a style="color:#FFFFFF" href="/en/dns-manager/?sort_order=name" title="Установить сортировку по возрастанию">
+                            	<div style="float:left" >DNS-запись</div>
+                            {% endif %}
+                            </a>
+                            {% if sort_direction == '-name' %}
+                            	<img src="/static/dnsmanager/up.png" alt="Сортировка" />
+                            {% endif %}
+                            {% if sort_direction == 'name' %}
+                            	<img src="/static/dnsmanager/down.png" alt="Сортировка" />
+                            {% endif %}                      
+                        </td>
+                        <td >
+                        	{% if sort_direction == 'type' %}
+                        	<a style="color:#FFFFFF" href="/en/dns-manager/?sort_order=-type" title="Установить сортировку по убыванию">
+                        		<div style="float:left" >Тип записи</div>
+                        	 {% else %}
+                        	 <a style="color:#FFFFFF" href="/en/dns-manager/?sort_order=type" title="Установить сортировку по возрастанию">
+                            	<div style="float:left" >Тип записи</div>
+                            {% endif %}
+                            </a>
+                            {% if sort_direction == '-type' %}
+                            	<img src="/static/dnsmanager/up.png" alt="Сортировка" />
+                            {% endif %}
+                            {% if sort_direction == 'type' %}
+                            	<img src="/static/dnsmanager/down.png" alt="Сортировка" />
+                            {% endif %}     
+                        </td>
+                        <td>
+                        	{% if sort_direction == 'content' %}
+                        	<a style="color:#FFFFFF" href="/en/dns-manager/?sort_order=-content" title="Установить сортировку по убыванию">
+                        		<div style="float:left" >Значение</div>
+                        	 {% else %}
+                        	 <a style="color:#FFFFFF" href="/en/dns-manager/?sort_order=content" title="Установить сортировку по возрастанию">
+                            	<div style="float:left" >Значение</div>
+                            {% endif %}
+                            </a>
+                            {% if sort_direction == '-content' %}
+                            	<img src="/static/dnsmanager/up.png" alt="Сортировка" />
+                            {% endif %}
+                            {% if sort_direction == 'content' %}
+                            	<img src="/static/dnsmanager/down.png" alt="Сортировка" />
+                            {% endif %}   
+                        </td>
+                        <td>
+                            Приоритет
+                        </td>
+                        <td>
+                            TTL
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    {% for record in records %}
+                    <tr>
+                        <td {% if record.type != 'SOA' %} {% if record.type != 'NS' %}
+                        		onclick="window.location='/en/dns-manager/?edit_record={{ record.id }}#editor'"
+                        	{% endif %}{% endif %}>
+                            <b>{{ record.name }}</b>
+                        </td>
+                        <td {% if record.type != 'SOA' %} {% if record.type != 'NS' %}
+                        onclick="window.location='/en/dns-manager/?edit_record={{ record.id }}#editor'"
+                        {% endif %}{% endif %}>
+                            {{ record.type }}
+                        </td>
+                        <td {% if record.type != 'SOA' %} {% if record.type != 'NS' %}
+                        onclick="window.location='/en/dns-manager/?edit_record={{ record.id }}#editor'"
+                        {% endif %}{% endif %}>
+                            {{ record.content }}
+                        </td>
+                        <td {% if record.type != 'SOA' %} {% if record.type != 'NS' %}
+                        onclick="window.location='/en/dns-manager/?edit_record={{ record.id }}#editor'"
+                        {% endif %}{% endif %}>
+                        	{% if record.prio != None %}
+                            	{{ record.prio }}
+                            {% endif %}
+                        </td>
+                        <td {% if record.type != 'SOA' %} {% if record.type != 'NS' %}
+                        onclick="window.location='/en/dns-manager/?edit_record={{ record.id }}#editor'"
+                        {% endif %}{% endif %}>
+                            {{ record.ttl }}
+                        </td>
+                        <td style="width:50px;">
+                        	{% if record.type != 'SOA' %}
+                        		{% if record.type != 'NS' %}
+                            		<img onclick="window.location='/en/dns-manager/?edit_record={{ record.id }}#editor'" src="/static/dnsmanager/edit.png" alt="Редактировать запись" title="Редактировать запись" />
+                            		&nbsp;
+                            		<a href="/en/dns-manager/?delete_record={{ record.id }}" ><img onclick="return confirm('Удалить DNS-запись {{ record.name }}?')" src="/static/dnsmanager/delete.png" alt="Удалить запись" title="Удалить запись" /></a>
+                            	{% endif %}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+    </div>   
+		<!--  <form action="/en/dns-manager/?hide_dns_editor=ok" method="POST" >
+			<input class="dns-form-button" type="submit" value="Скрыть редактор DNS-записей" />
+		</form>  -->
+    <div class="simple_table" style="width:50%;">
+               <table>
+                    <tr>
+                        <td>
+                        {% if form_check.editor_mode != True %}
+                        Создать DNS-запись:
+                        {% else %}
+                        Редактирование DNS-записи:
+                        {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>
+                    	 <form method="POST" action='/en/dns-manager/'>
+                    	 {% csrf_token %}
+  							<p><b>DNS-запись:</b></p>
+  							<input class="dns-form-input" {{ form_check.record_error_style | safe }} type="text" value="{{ form_check.record_value }}" name="dns-name" placeholder="record.th22.info" />
+  							{{ form_check.record_error_text | safe }}
+  							<p><b>Тип записи:</b></p>
+  								<select class="dns-form-input" name="dns-type">
+  									<option value="A" {{ form_check.a_selected }}>A</option>
+  									<option value="AAAA" {{ form_check.aaaa_selected }}>AAAA</option>
+  									<option value="CNAME" {{ form_check.cname_selected }}>CNAME</option>
+  									<option value="TXT" {{ form_check.txt_selected }}>TXT</option>
+  									<option value="MX" {{ form_check.mx_selected }}>MX</option>
+  									<option value="SRV" {{ form_check.srv_selected }}>SRV</option>
+								</select> 
+  							<p><b>Значение:</b></p>
+  							<input class="dns-form-input" {{ form_check.content_error_style | safe }} type="text" value="{{ form_check.record_content }}" name="dns-value" placeholder="172.31.12.54" />
+  							{{ form_check.content_error_text | safe }}
+  							<p><b>Приоритет:</b></p>
+  							<input class="dns-form-input" type="text" {{ form_check.prio_error_style | safe }} value="{% if form_check.record_prio != None %}{{ form_check.record_prio }}{% endif %}" name="dns-prio" placeholder="0" />
+  							{{ form_check.prio_error_text | safe }} 
+  							<p><b>TTL:</b></p>
+  							<input class="dns-form-input" type="text" {{ form_check.ttl_error_style | safe }} value="{{ form_check.record_ttl }}" name="dns-ttl" placeholder="14400" />
+  							{{ form_check.ttl_error_text | safe }}  
+  							{% if form_check.editor_mode != True %} 							 							
+								<input class="dns-form-input" type="hidden" name="add-dns" value="ok" />
+							{% else %}
+								<input class="dns-form-input" type="hidden" name="edit-dns" value="ok" />
+								<input type="hidden" name="rec_id" value="{{ form_check.record_id }}" />
+							{% endif %}
+  							<p>
+  							{% if form_check.editor_mode != True %}
+  								<input class="dns-form-button" type="submit" value="Добавить запись" />
+  							{% else %}
+  								<input class="dns-form-button" type="submit" value="Изменить запись" />
+  							{% endif %}
+  							</p>
+ 						</form>
+                    	</td>
+                    </tr>
+               </table>                
+            </div>   
+	</div>
+</body>
+</html>
