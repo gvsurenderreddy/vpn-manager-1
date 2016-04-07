@@ -1,0 +1,100 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 1 (0x1)
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=RU, ST=ALT, L=Barnaul, O=help-me-24.com, OU=IT, CN=help-me-24.com CA/name=EasyRSA/emailAddress=admin@help-me-24.com
+        Validity
+            Not Before: Apr  7 07:23:21 2016 GMT
+            Not After : Apr  5 07:23:21 2026 GMT
+        Subject: C=RU, ST=ALT, L=Barnaul, O=help-me-24.com, OU=IT, CN=vpn-01.help-me-24.com/name=EasyRSA/emailAddress=admin@help-me-24.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:c9:76:b1:cd:8b:48:e5:3d:76:30:c7:6c:52:4d:
+                    20:63:c3:81:a7:5c:17:9d:78:8e:67:03:1c:96:30:
+                    1b:13:b3:cd:9e:0d:26:e7:5f:ae:b6:00:c2:64:a7:
+                    34:2c:e0:51:39:b3:ff:63:54:d7:67:2c:fd:11:82:
+                    4c:53:d2:f7:93:a8:43:69:50:b8:1f:29:b4:c0:c3:
+                    7a:02:00:ed:61:7e:c4:38:4e:4a:c9:58:d4:ef:c1:
+                    e3:14:29:a1:12:5b:24:f2:3c:3e:df:01:2e:0c:e9:
+                    91:d2:77:5c:b0:8f:79:26:75:d8:08:52:27:3e:8a:
+                    1a:09:8c:97:d2:42:e7:fd:6e:85:2c:fe:af:fb:1c:
+                    fb:cd:14:db:4f:a3:be:ad:72:0f:e9:62:c4:ea:85:
+                    0a:ff:a7:2d:64:58:29:51:54:c1:3b:38:25:d7:67:
+                    92:40:33:e2:14:82:59:75:be:70:9a:74:4b:69:91:
+                    cc:85:92:30:bc:82:77:63:e6:a4:0b:c1:4d:86:f4:
+                    c9:74:54:6a:b7:17:d6:0d:a8:04:28:5f:30:07:9d:
+                    5d:f0:34:95:71:6a:e9:7b:48:af:6c:b9:f8:1b:de:
+                    0f:cb:c0:c2:cb:e5:0d:de:5a:6c:3c:4c:cf:4e:c3:
+                    67:f7:a7:ef:a5:89:4d:87:bc:09:c8:e3:e5:53:bc:
+                    fa:a5
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Cert Type: 
+                SSL Server
+            Netscape Comment: 
+                Easy-RSA Generated Server Certificate
+            X509v3 Subject Key Identifier: 
+                86:66:8C:23:89:26:D8:82:7B:AA:A4:08:D0:20:A2:96:01:07:A9:D5
+            X509v3 Authority Key Identifier: 
+                keyid:D5:B2:23:34:A4:38:8C:EB:F5:64:EC:17:62:E5:16:9E:70:35:56:7F
+                DirName:/C=RU/ST=ALT/L=Barnaul/O=help-me-24.com/OU=IT/CN=help-me-24.com CA/name=EasyRSA/emailAddress=admin@help-me-24.com
+                serial:EE:83:A7:95:E8:C9:CE:DD
+
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication
+            X509v3 Key Usage: 
+                Digital Signature, Key Encipherment
+            X509v3 Subject Alternative Name: 
+                DNS:vpn-01.help-me-24.com
+    Signature Algorithm: sha256WithRSAEncryption
+         18:f3:44:92:b6:88:de:f8:53:fa:f7:a9:71:04:3c:30:e8:81:
+         23:6b:cb:e4:46:65:32:4a:d6:3c:6f:1c:1f:f9:68:b3:08:0e:
+         4c:65:31:50:c0:31:f3:d6:10:75:41:a6:73:89:75:0a:a9:40:
+         ae:03:ac:ce:7d:16:42:2d:cd:68:f6:7c:68:ce:43:a9:74:1e:
+         36:ba:2d:62:54:ba:bb:64:3b:fd:d3:b3:be:ee:75:ca:27:5c:
+         6d:10:60:01:3b:3f:5c:60:fd:25:d1:c6:bb:e3:c6:96:16:3d:
+         88:e3:51:a4:48:0c:57:ee:4b:61:f2:6d:97:87:4a:b4:99:4d:
+         6d:96:70:55:27:7f:ae:e9:54:4b:17:c1:96:55:f3:03:f2:ca:
+         3c:7a:b5:1a:73:35:bf:5d:7b:95:91:5e:48:b1:26:a2:4c:c6:
+         39:5e:7f:d1:db:a3:af:4f:4f:a0:19:c9:38:9b:bf:54:2d:a8:
+         3a:78:c0:51:a5:80:e0:ac:bd:e3:bb:e2:94:5d:f7:b1:66:b6:
+         59:d6:8d:0e:f2:64:63:ac:01:80:a3:f0:be:e1:1f:5c:c6:f2:
+         8a:7b:46:ba:52:65:a3:72:2e:ec:9b:31:77:46:98:c8:c3:a5:
+         1d:cb:4c:ba:2a:f7:93:b1:d0:d9:d2:b7:c6:e4:47:be:7a:f4:
+         2f:0f:06:eb
+-----BEGIN CERTIFICATE-----
+MIIFaDCCBFCgAwIBAgIBATANBgkqhkiG9w0BAQsFADCBpjELMAkGA1UEBhMCUlUx
+DDAKBgNVBAgTA0FMVDEQMA4GA1UEBxMHQmFybmF1bDEXMBUGA1UEChMOaGVscC1t
+ZS0yNC5jb20xCzAJBgNVBAsTAklUMRowGAYDVQQDExFoZWxwLW1lLTI0LmNvbSBD
+QTEQMA4GA1UEKRMHRWFzeVJTQTEjMCEGCSqGSIb3DQEJARYUYWRtaW5AaGVscC1t
+ZS0yNC5jb20wHhcNMTYwNDA3MDcyMzIxWhcNMjYwNDA1MDcyMzIxWjCBqjELMAkG
+A1UEBhMCUlUxDDAKBgNVBAgTA0FMVDEQMA4GA1UEBxMHQmFybmF1bDEXMBUGA1UE
+ChMOaGVscC1tZS0yNC5jb20xCzAJBgNVBAsTAklUMR4wHAYDVQQDExV2cG4tMDEu
+aGVscC1tZS0yNC5jb20xEDAOBgNVBCkTB0Vhc3lSU0ExIzAhBgkqhkiG9w0BCQEW
+FGFkbWluQGhlbHAtbWUtMjQuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+CgKCAQEAyXaxzYtI5T12MMdsUk0gY8OBp1wXnXiOZwMcljAbE7PNng0m51+utgDC
+ZKc0LOBRObP/Y1TXZyz9EYJMU9L3k6hDaVC4Hym0wMN6AgDtYX7EOE5KyVjU78Hj
+FCmhElsk8jw+3wEuDOmR0ndcsI95JnXYCFInPooaCYyX0kLn/W6FLP6v+xz7zRTb
+T6O+rXIP6WLE6oUK/6ctZFgpUVTBOzgl12eSQDPiFIJZdb5wmnRLaZHMhZIwvIJ3
+Y+akC8FNhvTJdFRqtxfWDagEKF8wB51d8DSVcWrpe0ivbLn4G94Py8DCy+UN3lps
+PEzPTsNn96fvpYlNh7wJyOPlU7z6pQIDAQABo4IBmTCCAZUwCQYDVR0TBAIwADAR
+BglghkgBhvhCAQEEBAMCBkAwNAYJYIZIAYb4QgENBCcWJUVhc3ktUlNBIEdlbmVy
+YXRlZCBTZXJ2ZXIgQ2VydGlmaWNhdGUwHQYDVR0OBBYEFIZmjCOJJtiCe6qkCNAg
+opYBB6nVMIHbBgNVHSMEgdMwgdCAFNWyIzSkOIzr9WTsF2LlFp5wNVZ/oYGspIGp
+MIGmMQswCQYDVQQGEwJSVTEMMAoGA1UECBMDQUxUMRAwDgYDVQQHEwdCYXJuYXVs
+MRcwFQYDVQQKEw5oZWxwLW1lLTI0LmNvbTELMAkGA1UECxMCSVQxGjAYBgNVBAMT
+EWhlbHAtbWUtMjQuY29tIENBMRAwDgYDVQQpEwdFYXN5UlNBMSMwIQYJKoZIhvcN
+AQkBFhRhZG1pbkBoZWxwLW1lLTI0LmNvbYIJAO6Dp5Xoyc7dMBMGA1UdJQQMMAoG
+CCsGAQUFBwMBMAsGA1UdDwQEAwIFoDAgBgNVHREEGTAXghV2cG4tMDEuaGVscC1t
+ZS0yNC5jb20wDQYJKoZIhvcNAQELBQADggEBABjzRJK2iN74U/r3qXEEPDDogSNr
+y+RGZTJK1jxvHB/5aLMIDkxlMVDAMfPWEHVBpnOJdQqpQK4DrM59FkItzWj2fGjO
+Q6l0Hja6LWJUurtkO/3Ts77udconXG0QYAE7P1xg/SXRxrvjxpYWPYjjUaRIDFfu
+S2HybZeHSrSZTW2WcFUnf67pVEsXwZZV8wPyyjx6tRpzNb9de5WRXkixJqJMxjle
+f9Hbo69PT6AZyTibv1QtqDp4wFGlgOCsveO74pRd97FmtlnWjQ7yZGOsAYCj8L7h
+H1zG8op7RrpSZaNyLuybMXdGmMjDpR3LTLoq95Ox0NnSt8bkR7569C8PBus=
+-----END CERTIFICATE-----
